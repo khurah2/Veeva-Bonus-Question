@@ -1,5 +1,5 @@
-/*
-    Verify age outside of range (18-80) is not accepted.
+/**
+ * Verify Age field accepts only numeric input.
  */
 
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class boundaryCheck1 {
+public class inputValidation1 {
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
 
@@ -16,9 +16,9 @@ public class boundaryCheck1 {
         WebElement age = driver.findElement(By.id("cage"));
         WebElement calculate = driver.findElement(By.xpath("//input[@value='Calculate']"));
 
-        // Enter invalid input (x < 18 || x > 80)
+        // Enter invalid input (non-numeric)
         age.clear();
-        age.sendKeys("85");
+        age.sendKeys("test");
 
         // Click Calculate
         calculate.click();
